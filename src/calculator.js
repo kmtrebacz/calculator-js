@@ -1,14 +1,11 @@
-// Get the input field element and all the buttons
 const inputField = document.getElementById('input-field');
 const buttons = document.querySelectorAll('input');
 
-// Initialize variables for the input, result, and previous input and operator
 let input = '';
 let result = '';
 let previousInput = '';
 let previousOperator = '';
 
-// Loop through all the buttons and add event listeners for click events
 for (const button of buttons) {
   button.addEventListener('click', () => {
     const value = button.value;
