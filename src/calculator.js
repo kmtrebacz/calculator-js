@@ -3,6 +3,8 @@ const buttons = document.querySelectorAll('input');
 
 let input = '';
 let result = '';
+let previousInput = '';
+let previousOperator = '';
 
 for (const button of buttons) {
   button.addEventListener('click', () => {
@@ -12,14 +14,16 @@ for (const button of buttons) {
         clearInput();
         break;
       case '%':
-      case '/':
-      case '*':
-      case '-':
-      case '+':
       case '.':
       case '(':
       case ')':
         addToInput(value);
+        break;
+      case '/':
+      case '*':
+      case '-':
+      case '+':
+        handleOperator(value);
         break;
       case '=':
         calculate();
@@ -31,7 +35,7 @@ for (const button of buttons) {
 }
 
 function addToInput(value) {
-  if (input.length < 10) {
+  if (input.length < 14) {
     input += value;
     inputField.textContent = input;
   }
@@ -40,16 +44,47 @@ function addToInput(value) {
 function clearInput() {
   input = '';
   result = '';
+  previousInput = '';
+  previousOperator = '';
   inputField.textContent = '';
+}
+
+function handleOperator(operator) {
+  if (previousInput === '') {
+    previousInput = input;
+    previousOperator = operator;
+    input = '';
+  } else {
+    calculate();
+    previousOperator = operator;
+  }
 }
 
 function calculate() {
   try {
-    result = eval(input);
-    if (result.toString().length > 14) {
-      result = result.toPrecision(14);
+    const currentInput = parseFloat(input);
+    const previousInputValue = parseFloat(previousInput);
+    let currentResult = currentInput;
+    switch (previousOperator) {
+      case '/':
+        currentResult = previousInputValue / currentInput;
+        break;
+      case '*':
+        currentResult = previousInputValue * currentInput;
+        break;
+      case '-':
+        currentResult = previousInputValue - currentInput;
+        break;
+      case '+':
+        currentResult = previousInputValue + currentInput;
+        break;
     }
+    if (currentResult.toString().length > 14) {
+      currentResult = currentResult.toPrecision(14);
+    }
+    result = currentResult;
     inputField.textContent = result;
+    previousInput = result.toString();
     input = '';
   } catch(e) {
     inputField.textContent = 'Error';
