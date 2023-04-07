@@ -37,7 +37,7 @@ for (const button of buttons) {
 }
 
 function addToInput(value) {
-  if (input.length < 14) {
+  if (input.length < 10) {
     input += value;
     inputField.textContent = input;
   }
