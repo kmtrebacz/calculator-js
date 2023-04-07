@@ -25,6 +25,10 @@ section#bottom{
   }
 }
 
+section#top #input-field{
+  overflow: hidden;
+}
+
 .button{
   display: flex;
   justify-content: center;
@@ -37,7 +41,6 @@ section#bottom{
 
 .button.punct{background-color: #d6d6d6;}
 .button:hover{background-color: #c0c0c0;}
-
 
 .h20p{height: 20%;}
 .h25p{height: 25%;}
