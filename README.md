@@ -6,7 +6,7 @@ This is a simple calculator built with JavaScript that performs basic math opera
 - Clickable buttons for entering numbers, decimal points, parentheses, and math operators (+, -, *, /)
 - Clear button (AC) that clears the input and result fields
 - Percentage button (%) that either divides the current result by 100 or adds a "%" sign to the input
-- Limit of 10 characters for the input and output fields
+- Limit of 14 characters for the input and output fields
 - Error message displayed if the calculation fails due to invalid input
 
 # How to Use
