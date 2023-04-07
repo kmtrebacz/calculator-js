@@ -29,7 +29,7 @@ section#top #input-field{
   overflow: hidden;
 }
 
-.button{
+input[type=button]{
   display: flex;
   justify-content: center;
   align-items: center;
@@ -39,8 +39,8 @@ section#top #input-field{
   border: 0;
 }
 
-.button.punct{background-color: #d6d6d6;}
-.button:hover{background-color: #c0c0c0;}
+input[type=button].punct{background-color: #d6d6d6;}
+input[type=button]:hover{background-color: #c0c0c0;}
 
 .h20p{height: 20%;}
 .h25p{height: 25%;}

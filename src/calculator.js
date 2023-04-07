@@ -14,6 +14,8 @@ for (const button of buttons) {
         clearInput();
         break;
       case '%':
+        handlePercentage();
+        break;
       case '.':
       case '(':
       case ')':
@@ -47,6 +49,15 @@ function clearInput() {
   previousInput = '';
   previousOperator = '';
   inputField.textContent = '';
+}
+
+function handlePercentage() {
+  if (input === '') {
+    inputField.textContent = result / 100;
+    result = result / 100;
+  } else {
+    addToInput('%');
+  }
 }
 
 function handleOperator(operator) {
