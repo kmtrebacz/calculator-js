@@ -102,8 +102,8 @@ function calculate() {
         break;
     }
     // Limit the result to 14 characters or less
-    if (currentResult.toString().length > 14) {
-      currentResult = currentResult.toPrecision(14);
+    if (currentResult.toString().length > 10) {
+      currentResult = currentResult.toPrecision(10);
     }
     result = currentResult;
     inputField.textContent = result;
